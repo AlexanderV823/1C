@@ -154,3 +154,38 @@ sudo chown -R usr1cv8:grp1cv8 /var/1C/1cv8/conf/
 2. Запуск утилиты активации
 
 cd /opt/1cv8/x86_64/8.5.1.1150/ && ./licmngr --activate
+
+
+# Установка Docker
+
+1. Установка
+   sudo apt update
+   sudo apt install docker.io -y
+
+2. Запуск службы
+
+sudo systemctl enable --now docker
+
+3. Настройка Post-install
+
+sudo groupadd docker
+
+sudo usermod -aG docker $USER
+
+4. Чтобы не перезагружать компьютер, можно обновить права в текущей сессии терминала:
+
+newgrp docker
+
+5. Проверка
+
+docker run hello-world
+
+6. Установка Docker Compose
+
+sudo apt install docker-compose-plugin
+
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+
+7. Проверка
+
+docker compose version
