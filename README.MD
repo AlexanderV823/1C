@@ -203,7 +203,7 @@ docker compose version
 
 ssh -i <файл_ключа> пользователь@ip-сервера "mkdir -p ~/my-monitoring"
 
-scp -i <файл_ключа> docker-compose.yml prometheus.yml custom.ini <username>@<IP-сервера>:~/my-monitoring
+scp -i <файл_ключа> docker-compose.yml prometheus.yml custom.ini <username>@<IP_сервера>:~/my-monitoring
 
 9. Запуск
 
@@ -215,5 +215,5 @@ docker compose up -d
 docker compose ps
 docker logs ivanov-aa-netology-grafana
 
-Grafana: http://<IP_вашего_сервера>:8080
-Prometheus: http://<IP_вашего_сервера>:9090
+Grafana: http://<IP_сервера>:8080
+Prometheus: http://<IP_сервера>:9090
