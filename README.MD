@@ -9,7 +9,7 @@ scp "путь к файлу" user@ip-сервера:/tmp/1c_distrub/
 scp -r "путь к файлу" user@ip-сервера:/tmp/
 
 2. Подключаемся к удаленной машине по ssh
-   
+
 ssh -i "путь к файлу ключа" user@ip-сервера
 
 3. Устанавливаем зависимости и сразу архиватор
@@ -48,7 +48,7 @@ sudo systemctl enable srv1cv8-8.5.1.1150
 scp "путь к файлу" user@ip-сервера:/tmp/pg_distrub/
 
 2. Подключаемся к удаленной машине по ssh
-   
+
 ssh -i "путь к файлу ключа" user@ip-сервера
 
 3. Устанавливаем локаль
@@ -66,7 +66,7 @@ sudo apt-get install postgrespro-1c-17
 
 sudo /opt/pgpro/1c-17/bin/pg-setup initdb --tune=1c --locale=ru_RU.UTF-8
 
-sudo systemctl enable postgrespro-1c-17 
+sudo systemctl enable postgrespro-1c-17
 sudo systemctl start postgrespro-1c-17
 
 6. Установка пароля
@@ -79,12 +79,12 @@ sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'ваш_пароль';"
 /var/lib/pgpro/1c-17/data/postgresql.conf
 
 - в файле pg_hba.conf добавить строку для используемой сети:
- 
+
 TYPE  DATABASE        USER            ADDRESS                 METHOD
 host    all           postgres        192.168.1.10/32         md5
 
 8. Перезапуск Postgres
-   
+
 sudo systemctl restart postgrespro-1c-17
 
 
@@ -105,7 +105,7 @@ sudo systemctl restart postgrespro-1c-17
 # Установка и запуск Apache
 
 1. Установка
-   
+
 sudo apt-get update
 sudo apt-get install apache2
 
@@ -144,9 +144,6 @@ scp "путь к файлу" user@ip-сервера:/tmp/metadata.cf
 •	/S: строка подключения ("IP_сервера_1С\Имя_Базы").
 •	/LoadCfg: путь к файлу конфигурации.
 •	/UpdateDBCfg: обязательный флаг, который применяет загруженную конфигурацию к структуре таблиц в PostgreSQL (аналог нажатия F7 в графическом интерфейсе).
-
-
-
 
 # Активация лицензии
 
