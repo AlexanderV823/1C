@@ -182,10 +182,19 @@ docker run hello-world
 
 6. Установка Docker Compose
 
-sudo apt install docker-compose-plugin
+sudo apt-get update && sudo apt-get install ca-certificates curl gnupg
 
-chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-7. Проверка
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update && sudo apt-get install docker-compose-plugin
+
+1. Проверка
 
 docker compose version
