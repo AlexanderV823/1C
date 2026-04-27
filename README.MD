@@ -195,6 +195,25 @@ echo \
 
 sudo apt-get update && sudo apt-get install docker-compose-plugin
 
-1. Проверка
+7. Проверка
 
 docker compose version
+
+8. Перенос конфигурации на сервер
+
+ssh -i <файл_ключа> пользователь@ip-сервера "mkdir -p ~/my-monitoring"
+
+scp -i <файл_ключа> docker-compose.yml prometheus.yml custom.ini <username>@<IP-сервера>:~/my-monitoring
+
+9. Запуск
+
+cd ~/my-monitoring
+docker compose up -d
+
+10. Проверка
+
+docker compose ps
+docker logs ivanov-aa-netology-grafana
+
+Grafana: http://<IP_вашего_сервера>:8080
+Prometheus: http://<IP_вашего_сервера>:9090
