@@ -205,9 +205,9 @@ docker compose version
 
 ssh -i <файл_ключа> пользователь@ip-сервера "mkdir -p ~/my-monitoring"
 
-scp -i <файл_ключа> docker-compose.yml prometheus.yml custom.ini <username>@<IP_сервера>:~/my-monitoring
+scp -i <файл_ключа> -r <путь_к_папке> <username>@<IP_сервера>:~/my-monitoring
 
-2. Запуск
+1. Запуск
 
 cd ~/my-monitoring
 docker compose up -d
@@ -219,3 +219,11 @@ docker logs ivanov-aa-netology-grafana
 
 Grafana: http://<IP_сервера>:8080
 Prometheus: http://<IP_сервера>:9090
+
+Если не работает, то открыть порт:
+sudo ufw allow <требуемый для открытия порт>/tcp
+
+4. Остановка
+
+docker compose down
+"-v" удаляет все данные!
