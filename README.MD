@@ -207,7 +207,7 @@ ssh -i <файл_ключа> пользователь@ip-сервера "mkdir -
 
 scp -i <файл_ключа> -r <путь_к_папке> <username>@<IP_сервера>:~/my-monitoring
 
-1. Запуск
+2. Запуск
 
 cd ~/my-monitoring
 docker compose up -d
